@@ -7,7 +7,7 @@ services:
       dockerfile: ./Dockerfile
     image: node-app
     environment:
-      - MONGODB_URL=mongodb://mongodb:27017/node-boilerplate
+      - MONGODB_URL=mongodb://mongodb:27017/icommerce
       - EVENT_BUS_URL=http://event-bus:4000/events
     ports:
       - '3000:3000'
@@ -18,34 +18,34 @@ services:
     networks:
       - node-network
 
-  event-bus:
-    build:
-      context: ./event-bus
-      dockerfile: ./Dockerfile
-    image: event-bus
-    ports:
-      - '4000:4000'
-    depends_on:
-      - mongodb
-    volumes:
-      - ./event-bus:/usr/src/event-bus
-    networks:
-      - node-network
-  tracking-service:
-    build:
-      context: ./tracking-service
-      dockerfile: ./Dockerfile
-    image: tracking-service
-    environment:
-      - MONGODB_URL=mongodb://mongodb:27017/node-boilerplate
-    ports:
-      - '5000:5000'
-    depends_on:
-      - mongodb
-    volumes:
-      - ./tracking-service:/usr/src/tracking-service
-    networks:
-      - node-network
+  # event-bus:
+  #   build:
+  #     context: ./event-bus
+  #     dockerfile: ./Dockerfile
+  #   image: event-bus
+  #   ports:
+  #     - '4000:4000'
+  #   depends_on:
+  #     - mongodb
+  #   volumes:
+  #     - ./event-bus:/usr/src/event-bus
+  #   networks:
+  #     - node-network
+  # tracking-service:
+  #   build:
+  #     context: ./tracking-service
+  #     dockerfile: ./Dockerfile
+  #   image: tracking-service
+  #   environment:
+  #     - MONGODB_URL=mongodb://mongodb:27017/icommerce
+  #   ports:
+  #     - '5000:5000'
+  #   depends_on:
+  #     - mongodb
+  #   volumes:
+  #     - ./tracking-service:/usr/src/tracking-service
+  #   networks:
+  #     - node-network
   mongodb:
     image: mongo:4.2.1-bionic
     ports:

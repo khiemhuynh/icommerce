@@ -1,3 +1,3 @@
 #! /bin/bash
 
-mongoimport --host mongodb --db node-boilerplate --collection products --type json --file /data/product.json --jsonArray
+mongoimport --host mongodb --db icommerce --collection products --type json --file /data/product.json --jsonArray

@@ -7,7 +7,7 @@
 ![Architecture](./Architecture.png)
 
 - Mongo DB
-- Product service: Taking responsibility for searching product. Emitting events to the event bus when the user search a product
+- Product service: Taking responsibility for searching products. Emitting events to the event bus when the user search a product
 - Simple tracking service: Receive events from the event bus and store event data into the DB
 - Event bus: A very simple event bus which taking responsibility for communicating between services
 
@@ -85,4 +85,14 @@ List of available routes:
 Example :
 ```bash
 curl -X GET "http://localhost:3000/v1/products?price=46&branch=B&color=blue&limit=10&page=1" -H "accept: application/json"
+```
+### Run unit test
+Run unit test in docker
+```bash
+docker-compose -f docker-compose.yml -f docker-compose.test.yml build
+docker-compose -f docker-compose.yml -f docker-compose.test.yml up
+```
+Run unit test in the product service
+```bash
+yarn test
 ```

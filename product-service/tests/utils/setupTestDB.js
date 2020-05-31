@@ -3,6 +3,7 @@ const config = require('../../src/config/config');
 
 const setupTestDB = () => {
   beforeAll(async () => {
+    process.env.EVENT_BUS_URL = '';
     await mongoose.connect(config.mongoose.url, config.mongoose.options);
   });
 

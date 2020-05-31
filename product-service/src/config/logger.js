@@ -8,8 +8,19 @@ const enumerateErrorFormat = winston.format((info) => {
   return info;
 });
 
+let silent;
+switch (process.env.NODE_ENV) {
+  case 'test':
+    silent = true;
+    break;
+  default:
+    silent = false;
+    break;
+}
+
 const logger = winston.createLogger({
   level: config.env === 'development' ? 'debug' : 'info',
+  silent,
   format: winston.format.combine(
     enumerateErrorFormat(),
     config.env === 'development' ? winston.format.colorize() : winston.format.uncolorize(),
