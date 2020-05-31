@@ -4,7 +4,7 @@
 - Tracking events
 
 ## Architecture
-![Architecture](./Architecture.png)
+![Architecture](./diagrams/Architecture.png)
 
 - Mongo DB
 - Product service: Taking responsibility for searching products. Emitting events to the event bus when the product search a product
@@ -12,10 +12,10 @@
 - Event bus: A very simple event bus which taking responsibility for communicating between services
 
 ## DB schema
-![DB Schema](./DB_Schema.png)
+![DB Schema](./diagrams/DB_Schema.png)
 
 ## Sequence Diagram
-![Sequence Diagram](./SeqDiagram.png)
+![Sequence Diagram](./diagrams/SeqDiagram.png)
 
 ## Getting Started
 ### Installation
