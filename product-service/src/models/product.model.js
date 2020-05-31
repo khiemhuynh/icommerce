@@ -18,6 +18,14 @@ const productSchema = mongoose.Schema(
       required: true,
       trim: true,
     },
+    color: {
+      type: String,
+      trim: true,
+    },
+    branch: {
+      type: String,
+      trim: true,
+    },
   },
   {
     timestamps: true,

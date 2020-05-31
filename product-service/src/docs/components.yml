@@ -1,5 +1,28 @@
 components:
   schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+        decs:
+          type: string
+          enum: [A,B,C]
+        name:
+          type: string
+        price:
+          type: number
+        color:
+          type: number
+          enum: [blue,white,yellow]
+      example:
+        id: 5ebac534954b54139806c112
+        name: varius ultrices, mauris ipsum porta
+        desc: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed
+        price: 90
+        branch: B
+        color: white
+
     User:
       type: object
       properties:

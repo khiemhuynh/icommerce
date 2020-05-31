@@ -16,6 +16,11 @@ const queryProducts = async (filter, options) => {
   return products;
 };
 
+/**
+ * Get product by id
+ * @param {ObjectId} id
+ * @returns {Promise<Product>}
+ */
 const queryProduct = async (id) => {
   const product = await Product.findById(id);
   if (!product) {
