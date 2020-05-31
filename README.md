@@ -71,7 +71,7 @@ src\
  |--index.js        # App entry point and route controlers
  |--Dockerfile      # Docker file
 ```
-## API Documentation
+## API Documentation (Swagger)
 
 To view the list of available APIs and their specifications, run the server and go to `http://localhost:3000/v1/docs` in your browser.
 ### API Endpoints
@@ -133,10 +133,10 @@ For example, if you are trying to get a product from the DB who is not found, an
 ```javascript
 const httpStatus = require('http-status');
 const ApiError = require('../utils/ApiError');
-const User = require('../models/User');
+const Product = require('../models/Product');
 
-const getUser = async (productId) => {
-  const product = await User.findById(productId);
+const getProduct = async (productId) => {
+  const product = await Product.findById(productId);
   if (!product) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Product not found');
   }
